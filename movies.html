@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="movies.css">
+    <title> Hangman: The Movies</title>
+
+
+</head>
+<!-- javascript for the logic-->
+<script type="text/javascript">
+    // list of letters. may not use. 
+    // var lettersQuested = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    //list of movies
+    var movies = ["AVENGERS", "SPIDERMAN", "AVATAR", "INCREDIBLES"];
+    // this finds a random movie name.
+    var gameWord = movies[Math.floor(Math.random() * 4)];
+    // how many letters there are in the movie.
+    var numberOfSpace = gameWord.length;
+    //creating an array named wordByLetter
+    var wordByLetter = [];
+    // filling the array with each letter in a movie
+    wordByLetter = gameWord.split("");
+    // creating a blank array 
+    var blank = [];
+    // increasing the size of the array by letter number
+    blank.length = numberOfSpace;
+    //how many guesses are remained in a game
+    var guessRemained = 7;
+    // number of losses 
+    var losses = 0;
+    // number of wins
+    var wins = 0;
+    //testing if everything is initialized as wanted.
+    console.log(guessRemained);
+    console.log(gameWord);
+    console.log(wordByLetter);
+    console.log(blank.length);
+    console.log(numberOfSpace);
+// playing if there are number of guesses remained 
+    if (guessRemained > 0) {
+        //when key is pressed
+        document.onkeydown = function (event) {
+            // getting the key letter
+            var keyPressed = String.fromCharCode(event.keyCode);
+            // printing it on the page
+            document.getElementById('kp').innerHTML = keyPressed;
+            //pringin the guess remained on the page
+            document.getElementById('gr').innerHTML = guessRemained;
+            // giving a condition if an array has the key user pressed
+            if (wordByLetter.includes(keyPressed)) {
+                //finding where the letter is in an array
+                var numb = wordByLetter.indexOf(keyPressed);
+                //filling the blank array with corresponding letters 
+                blank[wordByLetter.indexOf(keyPressed)] = keyPressed;
+                //changing the original letters to 0.
+                wordByLetter[numb] = 0;
+                //teting for the blank array and original word array
+                console.log(blank);
+                console.log(wordByLetter);
+                //printing the filled array
+                document.getElementById('array').innerHTML = blank;
+            }
+            //when the user got it wrong
+            else{
+                guessRemained--;
+                document.getElementById('gr').innerHTML = guessRemained;
+            }
+            // when there are no more remaining guesses left
+            if (guessRemained == 0) {
+                //when user cannot make anymore guesses, increase loss amount
+            losses++;
+            //reseting to a blank array
+            blank = [];
+            //reseting to a blank array
+            wordByLetter = [];
+            //printing the losses on the screen
+            document.getElementById('losses').innerHTML = losses;
+            document.getElementById('array').innerHTML = blank;
+            //setting a new movie name for next round.
+            gameWord = movies[Math.floor(Math.random() * 4)];
+            //giving the length of an array 
+            blank.length = numberOfSpace;
+            // reseting the movie name with letters.
+            wordByLetter = gameWord.split("");
+            // reseting the guess remained for the user.
+            guessRemained = 7;
+        }
+        }
+    }
+
+
+
+</script>
+
+<body>
+    <h1></h1>
+    <header></header>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <img src="http://datagenetics.com/blog/april12012/htitle.jpg">
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Press any key to get started!</h5>
+                            <h6> Wins: </h6>
+                            <h6><span id ="wins"></span></h6>
+                            <h6> Losses: </h6>
+                            <h6><span id ="losses"></span></h6>
+                            <h6> Current Word</h6>
+                            <h6><span id="array"></span></h6>
+                            <h6>Number of Guesses Remained</6>
+                                <h6><span id="gr"></span></h6>
+                                <h6>Letters already quested</h6>
+                                <h6><span id="kp"></span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+
+
+
+
+
+
+</html>
