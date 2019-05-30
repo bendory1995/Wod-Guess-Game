@@ -30,6 +30,8 @@
     // increasing the size of the array by letter number
     blank.length = numberOfSpace;
     //how many guesses are remained in a game
+    blank.fill('_');
+    console.log(blank);
     var guessRemained = 7;
     // number of losses 
     var losses = 0;
@@ -63,7 +65,7 @@
                 console.log(blank);
                 console.log(wordByLetter);
                 //printing the filled array
-                document.getElementById('array').innerHTML = blank;
+                document.getElementById('array').innerHTML = blank.join(" ");
             }
             //when the user got it wrong
             else {
@@ -74,15 +76,15 @@
                 wins++;
                 document.getElementById('wins').innerHTML = wins;
                 blank = [];
-                //reseting to a blank array
                 wordByLetter = []; 
-                document.getElementById('array').innerHTML = blank;
                 gameWord = movies[Math.floor(Math.random() * movies.length)];
                 // reseting the movie name with letters.
                 wordByLetter = gameWord.split("");
                 // reseting the guess remained for the user.
                 //giving the length of an array 
                 blank.length = wordByLetter.length;
+                blank.fill('_');
+                document.getElementById('array').innerHTML = blank.join(" ");
                 count = blank.length;
                 guessRemained = 7;
                 document.getElementById('gr').innerHTML = guessRemained;
@@ -100,13 +102,15 @@
                 wordByLetter = [];
                 //printing the losses on the screen
                 document.getElementById('losses').innerHTML = losses;
-                document.getElementById('array').innerHTML = blank;
+                
                 //setting a new movie name for next round.
                 gameWord = movies[Math.floor(Math.random() * movies.length)];
                 // reseting the movie name with letters.
                 wordByLetter = gameWord.split("");
                 //giving the length of an array 
                 blank.length = wordByLetter.length;
+                blank.fill('_');
+                document.getElementById('array').innerHTML = blank.join(" ");
                 count = blank.length;
                 // reseting the guess remained for the user.
                 guessRemained = 7;
