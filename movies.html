@@ -73,7 +73,6 @@
         blank.length = numberOfSpace;
         //how many guesses are remained in a game
         blank.fill('_');
-        console.log(blank);
         var guessRemained = 7;
         // number of losses 
         var losses = 0;
@@ -81,12 +80,7 @@
         var wins = 0;
         var count = numberOfSpace;
         var lettersUsed = [];
-        //testing if everything is initialized as wanted.
-        console.log(guessRemained);
-        console.log(gameWord);
-        console.log(wordByLetter);
-        console.log(blank.length);
-        console.log(numberOfSpace);
+
         // playing if there are number of guesses remained 
         if (guessRemained > 0) {
             //when key is pressed
@@ -104,9 +98,6 @@
                     blank[wordByLetter.indexOf(keyPressed)] = keyPressed;
                     //changing the original letters to 0.
                     wordByLetter[numb] = 0;
-                    //teting for the blank array and original word array
-                    console.log(blank);
-                    console.log(wordByLetter);
                     //printing the filled array
                     document.getElementById('array').innerHTML = blank.join(" ");
                 }
@@ -135,7 +126,6 @@
                     count = blank.length;
                     guessRemained = 7;
                     document.getElementById('gr').innerHTML = guessRemained;
-                    console.log(gameWord);
 
 
                 }
@@ -164,7 +154,6 @@
                     // reseting the guess remained for the user.
                     guessRemained = 7;
                     document.getElementById('gr').innerHTML = guessRemained;
-                    console.log(gameWord);
                 }
             }
         }
