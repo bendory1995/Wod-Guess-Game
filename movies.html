@@ -14,8 +14,6 @@
 <!-- javascript for the logic-->
 <script type="text/javascript">
     // list of letters. may not use. 
-    // var lettersQuested = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    //list of movies
     var movies = ["AVENGERS", "SPIDERMAN", "AVATAR", "INCREDIBLES", "TITANIC", "JUMANJI", "DEADPOOL", "MINIONS", "AQUAMAN", "SHREK", "INCEPTION", "ROCKY", "SUPERMAN", "CINDERELLA", "BATMAN", "PINOCCHIO", "SHREK", "JAWS", "FROZEN", "TRANSFORMERS", "ZOOTOPIA", "UP", "ALADDIN", "PSYCHO", "GOODFELLAS", "GLADIATOR", "BAMBI", "ALIEN","CASABLANCA","GHOSTBUSTERS","MISERY","SEVEN","SCARFACE","ROBOCOP","TOOTSIE", "TOMBSTONE","BRAVEHEART","THOR","INTERSTELLAR", "UNBREAKABLE","ARRIVAL","DUMBO", "SKYFALL", "WATCHMEN", "TAKEN", "TROY", "MIRACLE", "ARMAGEDDON","RUSHMORE"];
     // this finds a random movie name.
     var gameWord = movies[Math.floor(Math.random() * movies.length)];
@@ -38,6 +36,7 @@
     // number of wins
     var wins = 0;
     var count = numberOfSpace;
+    var lettersUsed = [];
     //testing if everything is initialized as wanted.
     console.log(guessRemained);
     console.log(gameWord);
@@ -69,10 +68,14 @@
             }
             //when the user got it wrong
             else {
+                lettersUsed.push(keyPressed);
+                document.getElementById('lu').innerHTML = lettersUsed;
                 guessRemained--;
                 document.getElementById('gr').innerHTML = guessRemained;
             }
             if (count == 0){
+                lettersUsed = [];
+                document.getElementById('lu').innerHTML = lettersUsed;
                 wins++;
                 document.getElementById('wins').innerHTML = wins;
                 blank = [];
@@ -100,6 +103,8 @@
                 blank = [];
                 //reseting to a blank array
                 wordByLetter = [];
+                lettersUsed = [];
+                document.getElementById('lu').innerHTML = lettersUsed;
                 //printing the losses on the screen
                 document.getElementById('losses').innerHTML = losses;
                 
@@ -147,6 +152,8 @@
                             <h6><span id="array"></span></h6>
                             <h6>Number of Guesses Remained</6>
                                 <h6><span id="gr"></span></h6>
+                                <h6>Letters Already Used</h6>
+                                <h6><span id = "lu"></span></h6>
                         </div>
                     </div>
                 </div>
