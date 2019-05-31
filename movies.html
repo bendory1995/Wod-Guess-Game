@@ -11,7 +11,51 @@
 
 
 </head>
-<!-- javascript for the logic-->
+
+<body>
+    <h1></h1>
+    <header></header>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <img src="http://datagenetics.com/blog/april12012/htitle.jpg">
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Press any key to get started!</h5>
+                            <h6> Wins: </h6>
+                            <h6><span id="wins"></span></h6>
+                            <h6> Losses: </h6>
+                            <h6><span id="losses"></span></h6>
+                            <h6> Current Word</h6>
+                            <h6><span id="array"></span></h6>
+                            <h6>Number of Guesses Remained</6>
+                                <h6><span id="gr"></span></h6>
+                                <h6>Letters Already Used</h6>
+                                <h6><span id = "lu"></span></h6>
+
+                                <br>
+                                <br>
+                                <h3>TIPS</h3>
+                                <h6>***It only registers the key once even it matches multiple times***</h6>
+                                <h6>***Ex. AVATAR ***</h6>
+                                <h6>***If you press 'A', Output will be: A _ _ _ _ _ *** </h6>
+                                <h6>***Not A _ A _ A _***</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- javascript for the logic-->
 <script type="text/javascript">
     // list of letters. may not use. 
     var movies = ["AVENGERS", "SPIDERMAN", "AVATAR", "INCREDIBLES", "TITANIC", "JUMANJI", "DEADPOOL", "MINIONS", "AQUAMAN", "SHREK", "INCEPTION", "ROCKY", "SUPERMAN", "CINDERELLA", "BATMAN", "PINOCCHIO", "SHREK", "JAWS", "FROZEN", "TRANSFORMERS", "ZOOTOPIA", "UP", "ALADDIN", "PSYCHO", "GOODFELLAS", "GLADIATOR", "BAMBI", "ALIEN","CASABLANCA","GHOSTBUSTERS","MISERY","SEVEN","SCARFACE","ROBOCOP","TOOTSIE", "TOMBSTONE","BRAVEHEART","THOR","INTERSTELLAR", "UNBREAKABLE","ARRIVAL","DUMBO", "SKYFALL", "WATCHMEN", "TAKEN", "TROY", "MIRACLE", "ARMAGEDDON","RUSHMORE"];
@@ -128,48 +172,6 @@
 
 
 </script>
-
-<body>
-    <h1></h1>
-    <header></header>
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-8">
-                <div class="row">
-                    <img src="http://datagenetics.com/blog/april12012/htitle.jpg">
-                </div>
-                <div class="row">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Press any key to get started!</h5>
-                            <h6> Wins: </h6>
-                            <h6><span id="wins"></span></h6>
-                            <h6> Losses: </h6>
-                            <h6><span id="losses"></span></h6>
-                            <h6> Current Word</h6>
-                            <h6><span id="array"></span></h6>
-                            <h6>Number of Guesses Remained</6>
-                                <h6><span id="gr"></span></h6>
-                                <h6>Letters Already Used</h6>
-                                <h6><span id = "lu"></span></h6>
-
-                                <br>
-                                <br>
-                                <h3>TIPS</h3>
-                                <h6>***It only registers the key once even it matches multiple times***</h6>
-                                <h6>***Ex. AVATAR ***</h6>
-                                <h6>***If you press 'A', Output will be: A _ _ _ _ _ *** </h6>
-                                <h6>***Not A _ A _ A _***</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-            </div>
-        </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
